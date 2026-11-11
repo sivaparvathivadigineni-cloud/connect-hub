@@ -1,0 +1,106 @@
+/* Small visual lift for the existing CONNECT HUB layout and palette. */
+.hero-art {
+  border-color: #ff1238c2;
+  box-shadow:
+    inset 0 0 82px #ff123850,
+    0 0 26px #ff123866,
+    0 0 64px #ff12382b,
+    0 22px 64px #0007;
+}
+
+.hero-art .hero-photo {
+  filter: saturate(1.08) contrast(1.04);
+}
+
+.hero-art .hero-image-shade {
+  background:
+    radial-gradient(ellipse at 80% 75%, #ff23443e 0%, transparent 48%),
+    radial-gradient(ellipse at 6% 18%, #a7edff20 0%, transparent 36%),
+    linear-gradient(90deg, #07102020 0%, #07102000 43%, #07102030 100%),
+    linear-gradient(0deg, #07102090, transparent 33%);
+}
+
+.hero-art .float-card {
+  border-color: #ff345c65;
+  box-shadow: 0 0 20px #ff12382b, var(--shadow);
+}
+
+.category-card,
+.game-card,
+.session-card,
+.quick-game,
+.profile-sidebar,
+.profile-content,
+.form-panel,
+.about-grid article {
+  background-image: linear-gradient(145deg, #ffffff08, transparent 52%);
+  box-shadow: inset 0 1px #ffffff08;
+}
+
+.category-card {
+  background-color: color-mix(in srgb, var(--surface) 88%, var(--cat));
+}
+
+.category-card.indoor .category-visual {
+  background:
+    radial-gradient(ellipse at 48% 34%, #ffe16d88 0%, transparent 48%),
+    linear-gradient(145deg, #332b18 0%, #151b31 72%);
+  box-shadow: inset 0 0 42px #ffd84d24;
+}
+
+.category-card.outdoor .category-visual {
+  background:
+    radial-gradient(ellipse at 70% 36%, #a7ff755f 0%, transparent 46%),
+    linear-gradient(145deg, #102d26 0%, #111d33 76%);
+  box-shadow: inset 0 0 42px #7dff5122;
+}
+
+.game-art.lavender {
+  background:
+    radial-gradient(ellipse at 52% 44%, #ffe16d9c 0%, transparent 42%),
+    linear-gradient(145deg, #3b3019 0%, #201b31 82%);
+  box-shadow: inset 0 0 48px #ffd84d29;
+}
+
+.game-art.lime {
+  background:
+    radial-gradient(ellipse at 50% 42%, #a4ff777c 0%, transparent 43%),
+    linear-gradient(145deg, #10332a 0%, #142238 82%);
+  box-shadow: inset 0 0 48px #7dff5125;
+}
+
+.game-emoji {
+  filter: drop-shadow(0 0 16px #ffffff38) drop-shadow(0 12px 15px #0008);
+}
+
+.quick-game {
+  background-color: color-mix(in srgb, var(--surface) 92%, var(--accent));
+}
+
+.session-card,
+.category-card,
+.game-card,
+.quick-game,
+.about-grid article {
+  transition: transform .22s ease, box-shadow .22s ease, background-color .22s ease;
+}
+
+.session-card:hover,
+.game-card:hover,
+.quick-game:hover {
+  box-shadow: 0 12px 32px var(--accent-soft), inset 0 1px #ffffff12;
+}
+
+:root[data-theme='light'] .hero-art {
+  box-shadow: inset 0 0 70px #ff12381b, 0 0 24px #d9153b20, 0 20px 58px #24355e18;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .session-card,
+  .category-card,
+  .game-card,
+  .quick-game,
+  .about-grid article {
+    transition: none;
+  }
+}

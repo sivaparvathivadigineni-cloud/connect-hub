@@ -1,0 +1,74 @@
+/* Native SVG cursors stay lightweight and preserve browser selection and click targeting. */
+.app-shell {
+  cursor: url('/cursors/badminton.svg') 2 2, auto;
+}
+
+/* The homepage hero has its own visual motion; leave its general pointer native. */
+.app-shell:has(.home) {
+  cursor: auto;
+}
+
+.app-shell [data-sport='badminton'] {
+  cursor: url('/cursors/badminton.svg') 2 2, auto;
+}
+
+.app-shell [data-sport='basketball'] {
+  cursor: url('/cursors/basketball.svg') 2 2, auto;
+}
+
+.app-shell [data-sport='football'] {
+  cursor: url('/cursors/football.svg') 2 2, auto;
+}
+
+.app-shell [data-sport='volleyball'] {
+  cursor: url('/cursors/volleyball.svg') 2 2, auto;
+}
+
+.app-shell [data-sport='cricket'] {
+  cursor: url('/cursors/cricket.svg') 2 2, auto;
+}
+
+.app-shell [data-sport='chess'] {
+  cursor: url('/cursors/chess.svg') 2 2, auto;
+}
+
+.app-shell [data-sport='table-tennis'] {
+  cursor: url('/cursors/table-tennis.svg') 2 2, auto;
+}
+
+.app-shell [data-sport='carrom'] {
+  cursor: url('/cursors/carrom.svg') 2 2, auto;
+}
+
+/* Keep native affordances on interactive controls and editable text. */
+.app-shell a,
+.app-shell button,
+.app-shell summary,
+.app-shell select,
+.app-shell input[type='checkbox'],
+.app-shell input[type='radio'],
+.app-shell [role='button'] {
+  cursor: pointer;
+}
+
+.app-shell input[type='text'],
+.app-shell input[type='email'],
+.app-shell input[type='password'],
+.app-shell input[type='search'],
+.app-shell input[type='number'],
+.app-shell textarea,
+.app-shell [contenteditable='true'] {
+  cursor: text;
+}
+
+.app-shell label {
+  cursor: auto;
+}
+
+/* Touch screens and high contrast modes keep the platform cursor behavior. */
+@media (hover: none), (pointer: coarse), (forced-colors: active) {
+  .app-shell,
+  .app-shell [data-sport] {
+    cursor: auto !important;
+  }
+}
