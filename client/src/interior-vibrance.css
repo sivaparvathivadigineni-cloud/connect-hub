@@ -1,0 +1,196 @@
+/* Richer color and light for the interior pages, while leaving the home hero intact. */
+.app-shell:has(.indoor-page) { --accent: #42d9ff; --accent-soft: #42d9ff26; }
+.app-shell:has(.outdoor-page) { --accent: #61ee9b; --accent-soft: #61ee9b25; }
+.app-shell:has(.games-index-page) { --accent: #62d7ff; --accent-soft: #62d7ff25; }
+.app-shell:has(.sessions-page) { --accent: #ff6f86; --accent-soft: #ff6f8625; }
+.app-shell:has(.neon-auth) { --accent: #ff5c9b; --accent-soft: #ff5c9b25; }
+.app-shell:has(.profile-page) { --accent: #ff7083; --accent-soft: #ff708325; }
+
+.indoor-page .page-banner,
+.outdoor-page .page-banner,
+.games-index-page .page-banner,
+.sessions-page .page-banner,
+.profile-page .page-banner,
+.about-page .page-banner {
+  position: relative;
+  isolation: isolate;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line));
+}
+.indoor-page .page-banner:before,
+.outdoor-page .page-banner:before,
+.games-index-page .page-banner:before,
+.sessions-page .page-banner:before,
+.profile-page .page-banner:before,
+.about-page .page-banner:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0 -7vw;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 78% 34%, var(--accent-soft), transparent 48%), linear-gradient(90deg, transparent 35%, color-mix(in srgb, var(--accent) 4%, transparent));
+}
+.page-banner.purple { --accent: #42d9ff; --accent-soft: #42d9ff2b; }
+.page-banner.green { --accent: #61ee9b; --accent-soft: #61ee9b28; }
+.page-banner.amber { --accent: #ff6f86; --accent-soft: #ff6f8628; }
+.page-banner.violet { --accent: #ff7083; --accent-soft: #ff708328; }
+
+.games-index-page .category-card.indoor { --cat: #42d9ff; border-color: #42d9ff55; }
+.games-index-page .category-card.outdoor { --cat: #61ee9b; border-color: #61ee9b55; }
+.games-index-page .category-card.indoor .category-visual {
+  background: radial-gradient(ellipse at 50% 42%, #43dfff60, transparent 48%), linear-gradient(135deg, #12384a, #111d35 78%);
+  box-shadow: inset 0 0 44px #42d9ff20;
+}
+.games-index-page .category-card.outdoor .category-visual {
+  background: radial-gradient(ellipse at 68% 45%, #73ff9f68, transparent 46%), linear-gradient(135deg, #123d31, #111d35 78%);
+  box-shadow: inset 0 0 44px #61ee9b20;
+}
+.games-index-page .indoor-group { --accent: #42d9ff !important; --accent-soft: #42d9ff25 !important; }
+.games-index-page .outdoor-group { --accent: #61ee9b !important; --accent-soft: #61ee9b25 !important; }
+
+.indoor-page .game-art,
+.indoor-page .game-art.lavender {
+  background: radial-gradient(ellipse at 52% 44%, #42d9ff66, transparent 44%), linear-gradient(145deg, #113749, #151e36 80%);
+  box-shadow: inset 0 0 44px #42d9ff1c, 0 8px 26px #0004;
+}
+.outdoor-page .game-art,
+.outdoor-page .game-art.lime {
+  background: radial-gradient(ellipse at 50% 42%, #61ee9b66, transparent 45%), linear-gradient(145deg, #123b30, #142238 82%);
+  box-shadow: inset 0 0 44px #61ee9b1c, 0 8px 26px #0004;
+}
+.indoor-page .game-card, .outdoor-page .game-card,
+.games-index-page .category-card, .sessions-page .form-panel,
+.profile-page .profile-sidebar, .profile-page .profile-content,
+.about-page .about-grid article, .about-page .about-cta {
+  box-shadow: inset 0 1px #ffffff0c, 0 12px 32px #0002;
+}
+.indoor-page .game-card:hover, .outdoor-page .game-card:hover,
+.games-index-page .category-card:hover, .about-page .about-grid article:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px var(--accent-soft), inset 0 1px #ffffff14;
+}
+.about-page .about-grid article { overflow: hidden; }
+.about-page .about-grid article:after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  right: -50px;
+  top: -62px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #31c9bd20, transparent 70%);
+  pointer-events: none;
+}
+.neon-auth .auth-court {
+  border-color: #ff5c9b77;
+  background: radial-gradient(ellipse at 72% 35%, #42d9ff35, transparent 45%), linear-gradient(130deg, #ff5c9b22, #132444 78%);
+  box-shadow: inset 0 0 36px #ff5c9b19, 0 0 22px #ff5c9b18;
+}
+.profile-page .profile-sidebar,
+.profile-page .profile-content { background-color: color-mix(in srgb, var(--surface) 92%, #ff7083); }
+
+/* Photo covers carry the game-specific light and color into every session card. */
+.session-card {
+  --sport-light: #58d9ff;
+  position: relative;
+  isolation: isolate;
+  padding: 0;
+  overflow: hidden;
+  border-color: color-mix(in srgb, var(--sport-light) 42%, var(--line));
+  background: #0a1324;
+  box-shadow: inset 0 1px #ffffff0b, 0 0 20px color-mix(in srgb, var(--sport-light) 9%, transparent), 0 12px 30px #0004;
+  color: #f3f6ff;
+}
+.session-card:before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(ellipse at 82% 15%, color-mix(in srgb, var(--sport-light) 34%, transparent), transparent 42%),
+    linear-gradient(180deg, #07102005 0%, #07102024 23%, #071020c9 50%, #071020ef 100%),
+    var(--session-image);
+  background-size: cover;
+  background-position: center 42%;
+  filter: saturate(1.14) contrast(1.12);
+  transform: scale(1.015);
+}
+.session-card[data-sport="badminton"] { --sport-light: #ff526e; }
+.session-card[data-sport="cricket"] { --sport-light: #a5ef68; }
+.session-card[data-sport="football"] { --sport-light: #2ddbc2; }
+.session-card[data-sport="volleyball"] { --sport-light: #3de4e3; }
+.session-card[data-sport="basketball"] { --sport-light: #ff9851; }
+.session-card[data-sport="table-tennis"] { --sport-light: #43baff; }
+.session-card[data-sport="chess"] { --sport-light: #b8deff; }
+.session-card[data-sport="carrom"] { --sport-light: #ff78a8; }
+.session-cover {
+  position: relative;
+  isolation: isolate;
+  min-height: 184px;
+  padding: 15px 16px 17px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  background: transparent;
+  box-shadow: inset 0 0 58px color-mix(in srgb, var(--sport-light) 20%, transparent);
+}
+.session-cover:before,
+.session-cover:after { content: ""; position: absolute; inset: 0; pointer-events: none; }
+.session-cover:before {
+  z-index: -2;
+  background-image:
+    radial-gradient(ellipse at 80% 16%, color-mix(in srgb, var(--sport-light) 58%, transparent), transparent 40%),
+    radial-gradient(ellipse at 83% 76%, color-mix(in srgb, var(--sport-light) 22%, transparent), transparent 44%),
+    linear-gradient(90deg, #07102052 0%, #07102018 58%, #07102000 100%);
+  background-size: cover;
+  background-position: center;
+  filter: none;
+  transform: scale(1.035);
+  transition: transform .45s ease, filter .45s ease;
+}
+.session-cover:after {
+  z-index: -1;
+  opacity: .7;
+  background-image:
+    radial-gradient(ellipse at 76% 48%, transparent 0 27%, color-mix(in srgb, var(--sport-light) 65%, transparent) 27.25% 27.6%, transparent 27.9%),
+    radial-gradient(ellipse at 76% 48%, transparent 0 39%, color-mix(in srgb, var(--sport-light) 35%, transparent) 39.2% 39.45%, transparent 39.8%),
+    linear-gradient(color-mix(in srgb, var(--sport-light) 19%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--sport-light) 19%, transparent) 1px, transparent 1px);
+  background-size: auto, auto, 34px 34px, 34px 34px;
+  mask-image: linear-gradient(115deg, #000 0%, #000b 45%, transparent 100%);
+}
+.session-card:hover:before { transform: scale(1.035); filter: saturate(1.24) contrast(1.16) brightness(1.02); }
+.session-top { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 9px; }
+.session-tag { padding: 6px 8px; border: 1px solid color-mix(in srgb, var(--sport-light) 70%, transparent); border-radius: 7px; background: color-mix(in srgb, var(--sport-light) 20%, #071020a8); color: var(--sport-light); font: 700 8px 'DM Mono', monospace; letter-spacing: .08em; }
+.session-card .spots { padding: 6px 8px; border: 1px solid #ffffff24; border-radius: 7px; background: #07102088; color: #f4f7ff; font: 8px 'DM Mono', monospace; letter-spacing: .08em; }
+.session-cover-title h3 { margin: 0 0 5px; color: #fff; font: 700 23px/1.08 Manrope, sans-serif; letter-spacing: -.045em; text-shadow: 0 2px 12px #0009; }
+.session-cover-title .session-host { margin: 0; color: #e2e9f5; font-size: 10px; text-shadow: 0 1px 8px #000; }
+.session-cover-title .session-host b { color: #fff; }
+.session-content { padding: 14px 16px 16px; background: linear-gradient(180deg, #0a1324b8, #0a1324e8); }
+.session-card .session-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 9px; padding-bottom: 11px; border-bottom: 1px solid var(--line); }
+.session-card .session-meta span { display: inline-flex; align-items: center; gap: 6px; color: #bbc8dc; font-size: 9px; }
+.session-card .session-meta svg, .session-card .session-location svg { color: var(--sport-light); flex: none; }
+.session-card .session-location { display: flex; align-items: flex-start; gap: 7px; margin: 11px 0 0; color: var(--text); font-size: 11px; line-height: 1.5; }
+.session-card .session-notes { margin: 10px 0 0; color: var(--muted); font-size: 10px; line-height: 1.55; }
+.session-card .session-notes, .session-card .participant-summary span, .session-card .participant-state, .session-card .participant-name small { color: #bbc8dc; }
+.session-actions { display: flex; align-items: center; gap: 8px; margin-top: 12px; }
+.session-card .button.primary { background: var(--sport-light); box-shadow: 0 4px 18px color-mix(in srgb, var(--sport-light) 30%, transparent); }
+.session-card .button.secondary { border-color: color-mix(in srgb, var(--sport-light) 70%, transparent); color: var(--sport-light); background: color-mix(in srgb, var(--sport-light) 11%, transparent); }
+.session-card .participant-panel { border-color: var(--line); }
+.session-card .host-label { color: var(--sport-light); border-color: var(--sport-light); }
+.session-card:hover { border-color: color-mix(in srgb, var(--sport-light) 78%, white); box-shadow: 0 14px 34px color-mix(in srgb, var(--sport-light) 18%, transparent), inset 0 1px #ffffff14; }
+
+:root[data-theme='light'] .session-card { background: #10192b; }
+:root[data-theme='light'] .session-card:before { filter: saturate(1.1) contrast(1.08) brightness(.87); }
+
+@media (max-width: 660px) {
+  .session-cover { min-height: 168px; padding: 13px; }
+  .session-cover-title h3 { font-size: 21px; }
+  .session-content { padding: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .session-card:before { transition: none; }
+  .indoor-page .game-card:hover, .outdoor-page .game-card:hover,
+  .games-index-page .category-card:hover, .about-page .about-grid article:hover { transform: none; }
+}

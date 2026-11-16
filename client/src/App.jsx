@@ -122,10 +122,13 @@ function SessionCard({ item, notify, session }) {
   },[isHost,expanded,item.id]);
   const toggleRoster=()=>setExpanded(value=>!value);
   const date=new Date(item.starts_at);
-  return <article className="session-card" data-sport={sportCursor(item.game_name)}>
-    <div className="session-top"><span className={`session-tag ${item.category==='INDOOR'?'purple-tag':'green-tag'}`}>{item.category}</span><span className="spots">{spots ? `${spots} SPOTS LEFT` : 'FULL'}</span></div>
-    <h3>{item.game_name}</h3>
-    <p className="session-host">Hosted by <b>{item.host_name || 'Campus player'}</b></p>
+  const coverName=({Badminton:'badminton',Basketball:'basketball',Carrom:'carrom',Chess:'chess',Cricket:'cricket',Football:'football','Table Tennis':'table-tennis',Volleyball:'volleyball'})[item.game_name]||'football';
+  return <article className="session-card" data-sport={sportCursor(item.game_name)} style={{'--session-image':`url("/images/session-covers/${coverName}.jpg")`}}>
+    <div className="session-cover">
+      <div className="session-top"><span className="session-tag">{item.category}</span><span className="spots">{spots ? `${spots} SPOTS LEFT` : 'FULL'}</span></div>
+      <div className="session-cover-title"><h3>{item.game_name}</h3><p className="session-host">Hosted by <b>{item.host_name || 'Campus player'}</b></p></div>
+    </div>
+    <div className="session-content">
     <div className="session-meta"><span><CalendarDays size={14}/>{date.toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric'})}</span><span><Clock3 size={14}/>{date.toLocaleTimeString(undefined,{hour:'numeric',minute:'2-digit'})}</span><span><Users size={14}/>{item.participant_count || 0}/{item.max_players} players</span></div>
     <p className="session-location"><Compass size={14}/>{item.location}</p>
     {item.notes && <p className="session-notes">“{item.notes}”</p>}
@@ -139,6 +142,7 @@ function SessionCard({ item, notify, session }) {
         <ul>{roster.participants.map((player,index)=><li key={`${player.username}-${index}`}><span className="participant-name">{player.full_name}<small>@{player.username}</small></span>{player.is_host&&<span className="host-label">HOST</span>}</li>)}</ul>
       </>}
     </section>}
+    </div>
   </article>;
 }function Create({session,authReady,notify}) {
   const catalog=useGameCatalog();const [form,setForm]=useState({game_name:'',location:'Basketball Court',starts_at:'',max_players:4,notes:''});const [busy,setBusy]=useState(false); const navigate=useNavigate();

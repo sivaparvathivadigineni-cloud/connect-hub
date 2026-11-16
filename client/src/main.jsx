@@ -5,5 +5,6 @@ import App from './App.jsx';
 import './styles.css';
 import './sportCursor.css';
 import './depth-polish.css';
+import './interior-vibrance.css';
 
 createRoot(document.getElementById('root')).render(<React.StrictMode><BrowserRouter><App /></BrowserRouter></React.StrictMode>);
