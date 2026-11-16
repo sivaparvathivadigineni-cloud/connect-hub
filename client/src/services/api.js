@@ -1,7 +1,8 @@
 import { supabase } from './supabase.js';
 
-const base = import.meta.env.VITE_API_URL || 'http://localhost:4000/api';
+const base = (import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:4000/api' : '')).replace(/\/+$/, '');
 export async function api(path, options = {}) {
+  if (!base) throw new Error('The API URL is not configured. Set VITE_API_URL for this deployment.');
   const { data } = supabase ? await supabase.auth.getSession() : { data: { session: null } };
   const response = await fetch(`${base}${path}`, {
     ...options,

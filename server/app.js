@@ -16,7 +16,13 @@ const supabase = supabaseUrl && publishableKey
   : null;
 
 app.use(helmet());
-app.use(cors({ origin: process.env.CLIENT_ORIGIN || 'http://localhost:5173' }));
+const clientOrigin = (process.env.CLIENT_ORIGIN || (process.env.NODE_ENV === 'production' ? '' : 'http://localhost:5173'))
+  .trim()
+  .replace(/\/+$/, '');
+if (!clientOrigin) {
+  throw new Error('CLIENT_ORIGIN must be set to the deployed frontend origin in production.');
+}
+app.use(cors({ origin: clientOrigin }));
 app.use(express.json({ limit: '20kb' }));
 
 const requireSupabase = (_req, res, next) => supabase
