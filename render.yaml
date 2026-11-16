@@ -3,6 +3,7 @@ services:
     name: connect-hub-api
     runtime: node
     plan: free
+    autoDeployTrigger: commit
     buildCommand: npm install --prefix server
     startCommand: npm --prefix server start
     healthCheckPath: /api/health
@@ -19,6 +20,7 @@ services:
   - type: web
     name: connect-hub-client
     runtime: static
+    autoDeployTrigger: commit
     buildCommand: npm install --prefix client && npm --prefix client run build
     staticPublishPath: client/dist
     envVars:
