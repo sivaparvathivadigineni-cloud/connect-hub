@@ -123,6 +123,13 @@
 .session-card[data-sport="table-tennis"] { --sport-light: #43baff; }
 .session-card[data-sport="chess"] { --sport-light: #b8deff; }
 .session-card[data-sport="carrom"] { --sport-light: #ff78a8; }
+.session-card[data-sport="basketball"]:before { background-position: 82% 10%; }
+.session-card[data-sport="cricket"]:before { background-position: 76% 38%; }
+.session-card[data-sport="football"]:before { background-position: 68% 46%; }
+.session-card[data-sport="volleyball"]:before { background-position: 66% 38%; }
+.session-card[data-sport="table-tennis"]:before { background-position: 63% 40%; }
+.session-card[data-sport="chess"]:before { background-position: 71% 50%; }
+.session-card[data-sport="badminton"]:before { background-position: 73% 36%; }
 .session-cover {
   position: relative;
   isolation: isolate;
@@ -140,8 +147,8 @@
 .session-cover:before {
   z-index: -2;
   background-image:
-    radial-gradient(ellipse at 80% 16%, color-mix(in srgb, var(--sport-light) 58%, transparent), transparent 40%),
-    radial-gradient(ellipse at 83% 76%, color-mix(in srgb, var(--sport-light) 22%, transparent), transparent 44%),
+    radial-gradient(ellipse at 80% 16%, color-mix(in srgb, var(--sport-light) 38%, transparent), transparent 42%),
+    radial-gradient(ellipse at 83% 76%, color-mix(in srgb, var(--sport-light) 14%, transparent), transparent 46%),
     linear-gradient(90deg, #07102052 0%, #07102018 58%, #07102000 100%);
   background-size: cover;
   background-position: center;
@@ -151,13 +158,12 @@
 }
 .session-cover:after {
   z-index: -1;
-  opacity: .7;
+  opacity: .38;
   background-image:
-    radial-gradient(ellipse at 76% 48%, transparent 0 27%, color-mix(in srgb, var(--sport-light) 65%, transparent) 27.25% 27.6%, transparent 27.9%),
-    radial-gradient(ellipse at 76% 48%, transparent 0 39%, color-mix(in srgb, var(--sport-light) 35%, transparent) 39.2% 39.45%, transparent 39.8%),
-    linear-gradient(color-mix(in srgb, var(--sport-light) 19%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in srgb, var(--sport-light) 19%, transparent) 1px, transparent 1px);
-  background-size: auto, auto, 34px 34px, 34px 34px;
+    radial-gradient(ellipse at 76% 48%, transparent 0 31%, color-mix(in srgb, var(--sport-light) 38%, transparent) 31.2% 31.45%, transparent 31.7%),
+    linear-gradient(color-mix(in srgb, var(--sport-light) 12%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--sport-light) 12%, transparent) 1px, transparent 1px);
+  background-size: auto, 34px 34px, 34px 34px;
   mask-image: linear-gradient(115deg, #000 0%, #000b 45%, transparent 100%);
 }
 .session-card:hover:before { transform: scale(1.035); filter: saturate(1.24) contrast(1.16) brightness(1.02); }
@@ -177,6 +183,9 @@
 .session-actions { display: flex; align-items: center; gap: 8px; margin-top: 12px; }
 .session-card .button.primary { background: var(--sport-light); box-shadow: 0 4px 18px color-mix(in srgb, var(--sport-light) 30%, transparent); }
 .session-card .button.secondary { border-color: color-mix(in srgb, var(--sport-light) 70%, transparent); color: var(--sport-light); background: color-mix(in srgb, var(--sport-light) 11%, transparent); }
+.session-card .button.session-delete { min-height: 34px; padding: 0 11px; border: 1px solid #ff788967; background: #ff526e1a; color: #ff9aaa; font-size: 9px; }
+.session-card .button.session-delete:hover:not(:disabled) { border-color: #ff8192; background: #ff526e30; box-shadow: 0 0 18px #ff526e30; }
+.session-card .button.session-delete:disabled { opacity: .65; cursor: wait; }
 .session-card .participant-panel { border-color: var(--line); }
 .session-card .host-label { color: var(--sport-light); border-color: var(--sport-light); }
 .session-card:hover { border-color: color-mix(in srgb, var(--sport-light) 78%, white); box-shadow: 0 14px 34px color-mix(in srgb, var(--sport-light) 18%, transparent), inset 0 1px #ffffff14; }

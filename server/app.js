@@ -113,6 +113,18 @@ app.post('/api/sessions', requireSupabase, auth, handle(async (req, res) => {
   res.status(201).json({ session: data });
 }));
 
+app.delete('/api/sessions/:id', requireSupabase, auth, handle(async (req, res) => {
+  const { data, error } = await req.userDb.from('game_sessions').delete()
+    .eq('id', req.params.id).eq('host_id', req.user.id).select('id').maybeSingle();
+  if (error) {
+    if (error.code === '22P02') return res.status(400).json({ error: 'Invalid session ID.' });
+    if (error.code === '42501') return res.status(403).json({ error: 'Only the session host can delete it.' });
+    throw error;
+  }
+  if (!data) return res.status(404).json({ error: 'Session not found or you are not its host.' });
+  res.json({ deleted: true, id: data.id });
+}));
+
 app.post('/api/sessions/:id/join', requireSupabase, auth, handle(async (req, res) => {
   const { data, error } = await req.userDb.rpc('join_game_session', { p_session_id: req.params.id });
   if (error) {
