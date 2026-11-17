@@ -204,3 +204,133 @@
   .indoor-page .game-card:hover, .outdoor-page .game-card:hover,
   .games-index-page .category-card:hover, .about-page .about-grid article:hover { transform: none; }
 }
+
+/* Give the About and Profile pages the same visual depth as the game pages. */
+.about-page .about-banner,
+.profile-page .profile-banner {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(340px, 1.1fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 72px);
+  min-height: 390px;
+  padding: 46px 0 36px;
+  overflow: visible;
+}
+.about-banner-copy,
+.profile-banner-copy { position: relative; z-index: 1; }
+.about-page .about-banner h1,
+.profile-page .profile-banner h1 {
+  margin: 18px 0 15px;
+  font-size: clamp(48px, 6.2vw, 78px);
+  line-height: .98;
+  letter-spacing: -.07em;
+}
+.about-page .about-banner h1 span { color: #35d2c3; text-shadow: 0 0 28px #35d2c32b; }
+.about-page .about-banner p,
+.profile-page .profile-banner p { max-width: 390px; font-size: 13px; line-height: 1.8; }
+.about-page .about-banner .button { margin-top: 18px; }
+.about-showcase,
+.profile-banner-visual {
+  position: relative;
+  min-height: 300px;
+  border: 1px solid color-mix(in srgb, var(--accent) 52%, var(--line));
+  border-radius: 18px;
+  background: #0a1324;
+  box-shadow: 0 18px 50px #0006, 0 0 28px color-mix(in srgb, var(--accent) 15%, transparent);
+  isolation: isolate;
+}
+.about-showcase:before,
+.profile-banner-visual:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #07102020, transparent 64%), linear-gradient(0deg, #071020ba, transparent 45%);
+}
+.about-showcase-main,
+.profile-banner-main {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  filter: saturate(1.13) contrast(1.06);
+}
+.about-showcase-stack {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  bottom: 58px;
+  display: grid;
+  width: 30%;
+  gap: 12px;
+}
+.about-showcase-stack img,
+.profile-banner-side img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  border: 1px solid #ffffff55;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px #0008;
+}
+.about-showcase-caption,
+.profile-banner-caption {
+  position: absolute;
+  left: 18px;
+  bottom: 17px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #fff;
+  font: 700 9px 'DM Mono', monospace;
+  letter-spacing: .12em;
+  text-shadow: 0 2px 10px #000;
+}
+.about-showcase-caption i,
+.profile-banner-caption i { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
+.about-section { margin-top: 34px; }
+.about-section-intro { margin: 0 0 20px; }
+.about-section-intro h2 { margin: 9px 0 6px; font-size: clamp(22px, 3vw, 32px); letter-spacing: -.045em; }
+.about-section-intro p { margin: 0; color: var(--muted); font-size: 11px; }
+.about-page .about-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.about-page .about-grid article {
+  position: relative;
+  min-height: 205px;
+  padding: 20px;
+  border-color: color-mix(in srgb, var(--card-accent, var(--accent)) 42%, var(--line));
+  background: linear-gradient(145deg, color-mix(in srgb, var(--card-accent, var(--accent)) 11%, var(--surface)), color-mix(in srgb, var(--surface) 94%, #0a1426));
+}
+.about-page .about-grid article:nth-child(1) { --card-accent: #41d7ff; }
+.about-page .about-grid article:nth-child(2) { --card-accent: #ff718f; }
+.about-page .about-grid article:nth-child(3) { --card-accent: #70edaa; }
+.about-page .about-grid article > span { color: var(--card-accent); font-size: 8px; letter-spacing: .12em; }
+.about-page .about-grid article svg { width: 24px; height: 24px; margin: 22px 0 12px; color: var(--card-accent); filter: drop-shadow(0 0 9px color-mix(in srgb, var(--card-accent) 45%, transparent)); }
+.about-page .about-grid article h2 { margin: 0 0 8px; font-size: 18px; }
+.about-page .about-grid article p { max-width: 290px; font-size: 10px; line-height: 1.7; }
+.about-page .about-cta { margin-top: 18px; border-color: #35d2c344; background: linear-gradient(100deg, #35d2c31b, #121f38 60%, #13243a); }
+.profile-banner-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.profile-banner-tags span { padding: 7px 9px; border: 1px solid #ff708344; border-radius: 7px; background: #ff708312; color: #ffd9df; font: 700 8px 'DM Mono', monospace; letter-spacing: .09em; }
+.profile-banner-side { position: absolute; top: 20px; right: 20px; bottom: 56px; width: 34%; display: grid; grid-template-rows: 1fr auto; gap: 8px; }
+.profile-banner-side span { color: #fff; font: 700 8px 'DM Mono', monospace; letter-spacing: .1em; text-align: right; text-shadow: 0 2px 8px #000; }
+.profile-page .profile-layout { align-items: stretch; }
+.profile-page .profile-sidebar { border-color: #ff70834a; background: linear-gradient(155deg, color-mix(in srgb, var(--surface) 82%, #ff7083), color-mix(in srgb, var(--surface) 97%, #161c36)); }
+.profile-page .profile-content { border-color: #ff70833d; background: linear-gradient(145deg, color-mix(in srgb, var(--surface) 89%, #ff7083), color-mix(in srgb, var(--surface) 98%, #10162a)); }
+.profile-page .profile-avatar { box-shadow: 0 0 22px #ff70832e, inset 0 0 18px #ff70831c; }
+
+@media (max-width: 850px) {
+  .about-page .about-banner, .profile-page .profile-banner { grid-template-columns: 1fr 1fr; gap: 24px; min-height: 330px; }
+  .about-showcase, .profile-banner-visual { min-height: 250px; }
+}
+@media (max-width: 660px) {
+  .about-page .about-banner, .profile-page .profile-banner { grid-template-columns: 1fr; gap: 22px; padding: 34px 0 25px; }
+  .about-page .about-banner h1, .profile-page .profile-banner h1 { font-size: 52px; }
+  .about-page .about-banner p, .profile-page .profile-banner p { max-width: 100%; }
+  .about-showcase, .profile-banner-visual { min-height: 220px; }
+  .about-page .about-grid { grid-template-columns: 1fr; }
+  .about-page .about-grid article { min-height: 170px; }
+  .about-page .about-grid article svg { margin: 15px 0 9px; }
+}
