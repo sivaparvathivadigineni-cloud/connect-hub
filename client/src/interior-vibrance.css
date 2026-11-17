@@ -314,8 +314,8 @@
 .about-page .about-cta { margin-top: 18px; border-color: #35d2c344; background: linear-gradient(100deg, #35d2c31b, #121f38 60%, #13243a); }
 .profile-banner-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
 .profile-banner-tags span { padding: 7px 9px; border: 1px solid #ff708344; border-radius: 7px; background: #ff708312; color: #ffd9df; font: 700 8px 'DM Mono', monospace; letter-spacing: .09em; }
-.profile-page .profile-banner-visual { width: min(100%, 360px); min-height: 0; aspect-ratio: 823 / 1042; justify-self: end; }
-.profile-page .profile-banner-main { object-fit: contain; }
+.profile-page .profile-banner-visual { width: 100%; min-height: 0; aspect-ratio: 1.5; justify-self: stretch; }
+.profile-page .profile-banner-main { object-fit: cover; object-position: center 56%; }
 .profile-page .profile-banner-caption { top: 15px; bottom: auto; left: 15px; }
 .profile-page .profile-layout { align-items: stretch; }
 .profile-page .profile-sidebar { border-color: #ff70834a; background: linear-gradient(155deg, color-mix(in srgb, var(--surface) 82%, #ff7083), color-mix(in srgb, var(--surface) 97%, #161c36)); }
@@ -331,7 +331,7 @@
   .about-page .about-banner h1, .profile-page .profile-banner h1 { font-size: 52px; }
   .about-page .about-banner p, .profile-page .profile-banner p { max-width: 100%; }
   .about-showcase, .profile-banner-visual { min-height: 220px; }
-  .profile-page .profile-banner-visual { width: min(100%, 300px); min-height: 0; justify-self: center; }
+  .profile-page .profile-banner-visual { width: 100%; min-height: 0; justify-self: stretch; }
   .about-page .about-grid { grid-template-columns: 1fr; }
   .about-page .about-grid article { min-height: 170px; }
   .about-page .about-grid article svg { margin: 15px 0 9px; }
