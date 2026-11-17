@@ -134,7 +134,7 @@ function SessionCard({ item, notify, session, onDeleted }) {
   const date=new Date(item.starts_at);
   const coverName=({Badminton:'badminton',Basketball:'basketball',Carrom:'carrom',Chess:'chess',Cricket:'cricket',Football:'football','Table Tennis':'table-tennis',Volleyball:'volleyball'})[item.game_name]||'football';
   if(deleted)return null;
-  return <article className="session-card" data-sport={sportCursor(item.game_name)} style={{'--session-image':`url("/images/session-covers/${coverName}.jpg")`}}>
+  return <article className="session-card" data-sport={sportCursor(item.game_name)} style={{'--session-image':`url("/images/session-covers-v2/${coverName}.jpg")`}}>
     <div className="session-cover">
       <div className="session-top"><span className="session-tag">{item.category}</span><span className="spots">{spots ? `${spots} SPOTS LEFT` : 'FULL'}</span></div>
       <div className="session-cover-title"><h3>{item.game_name}</h3><p className="session-host">Hosted by <b>{item.host_name || 'Campus player'}</b></p></div>
