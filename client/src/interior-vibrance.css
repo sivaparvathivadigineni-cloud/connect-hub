@@ -108,7 +108,7 @@
   pointer-events: none;
   background-image:
     radial-gradient(ellipse at 82% 15%, color-mix(in srgb, var(--sport-light) 16%, transparent), transparent 42%),
-    linear-gradient(180deg, #07102005 0%, #07102024 23%, #071020c9 50%, #071020ef 100%),
+    linear-gradient(180deg, #07102010 0%, #07102030 38%, #07102072 100%),
     var(--session-image);
   background-size: cover;
   background-position: center 42%;
@@ -174,7 +174,7 @@
 .session-cover-title h3 { margin: 0 0 5px; color: #fff; font: 700 23px/1.08 Manrope, sans-serif; letter-spacing: -.045em; text-shadow: 0 2px 12px #0009; }
 .session-cover-title .session-host { margin: 0; color: #e2e9f5; font-size: 10px; text-shadow: 0 1px 8px #000; }
 .session-cover-title .session-host b { color: #fff; }
-.session-content { padding: 14px 16px 16px; background: linear-gradient(180deg, #0a1324b8, #0a1324e8); }
+.session-content { padding: 14px 16px 16px; background: linear-gradient(180deg, #0a13247d, #0a1324a8); }
 .session-card .session-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 9px; padding-bottom: 11px; border-bottom: 1px solid var(--line); }
 .session-card .session-meta span { display: inline-flex; align-items: center; gap: 6px; color: #bbc8dc; font-size: 9px; }
 .session-card .session-meta svg, .session-card .session-location svg { color: var(--sport-light); flex: none; }
